@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWN | 二进制漏洞利用练习平台</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- 顶部标题栏 -->
+    <header class="header">
+        <a href="#" class="logo">
+            <span>PWN入门练习平台</span>
+        </a>
+        <div class="header-right">
+            <span class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span>Sally</span>
+            </span>
+        </div>
+    </header>
+
+    <!-- 主内容包装器 -->
+    <div class="main-wrapper">
+        <!-- PWN技术导航分区-->
+        <div class="nav-grid">
+            <div class="nav-item active" data-target="shellcode">
+                <i class="fas fa-terminal"></i>
+                <span>Shellcode</span>
+                <div class="difficulty-badge beginner">入门</div>
+            </div>
+            <div class="nav-item" data-target="rop">
+                <i class="fas fa-link"></i>
+                <span>ROP链</span>
+                <div class="difficulty-badge intermediate">进阶</div>
+            </div>
+            <div class="nav-item" data-target="heap">
+                <i class="fas fa-memory"></i>
+                <span>堆利用</span>
+                <div class="difficulty-badge advanced">高级</div>
+            </div>
+            <div class="nav-item" data-target="format">
+                <i class="fas fa-code"></i>
+                <span>格式化字符串</span>
+                <div class="difficulty-badge intermediate">进阶</div>
+            </div>
+            <div class="nav-item" data-target="stack">
+                <i class="fas fa-layer-group"></i>
+                <span>栈溢出</span>
+                <div class="difficulty-badge beginner">入门</div>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content">
+            <!-- Shellcode 练习 -->
+            <div id="shellcode" class="section active">
+                <div class="section-header">
+                    <h2><i class="fas fa-terminal"></i> Shellcode 编写与利用</h2>
+                    <p>学习编写和利用shellcode，掌握汇编语言在漏洞利用中的应用</p>
+                </div>
+
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>EZ Shellcode</h3>
+                            <span class="challenge-points">50 pts</span>
+                        </div>
+                        <p>编写一个在无任何保护的x64程序下拿shell的shellcode</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty beginner">入门</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>orw</h3>
+                            <span class="challenge-points">100 pts</span>
+                        </div>
+                        <p>execve和execveat被ban了怎么办？
+                        </p>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">进阶</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>侧信道攻击</h3>
+                            <span class="challenge-points">150 pts</span>
+                        </div>
+                        <p>连write都被ban了怎么办</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty advanced">高级</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROP 练习 -->
+            <div id="rop" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-link"></i> ROP链构造技术</h2>
+                    <p>学习Return-Oriented Programming技术，掌握现代漏洞利用方法</p>
+                </div>
+
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>基础ROP链</h3>
+                            <span class="challenge-points">50 pts</span>
+                        </div>
+                        <p>没有后门怎么办呢（</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty beginner">入门</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>ret2syscall</h3>
+                            <span class="challenge-points">50 pts</span>
+                        </div>
+                        <p>这些gadgets要怎么用呢</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty beginner">入门</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>ret2libc</h3>
+                            <span class="challenge-points">100 pts</span>
+                        </div>
+                        <p>什么是动态绑定和plt、got表？</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">进阶</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>ret2csu</h3>
+                            <span class="challenge-points">150 pts</span>
+                        </div>
+                        <p>了解一下_libc_csu_init吧</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">进阶</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>SROP攻击</h3>
+                            <span class="challenge-points">200 pts</span>
+                        </div>
+                        <p>Signal Return!</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty advanced">高级</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 堆利用 -->
+            <div id="heap" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-memory"></i> 堆漏洞利用技术</h2>
+                    <p>深入学习堆管理机制，掌握各种堆利用技术</p>
+                </div>
+
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>Use After Free</h3>
+                            <span class="challenge-points">120 pts</span>
+                        </div>
+                        <p>利用释放后使用漏洞进行攻击</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty advanced">高级</span>
+                            <span class="arch">x86-64</span>
+                            <span class="solved">glibc-2.27</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>Double Free</h3>
+                            <span class="challenge-points">150 pts</span>
+                        </div>
+                        <p>利用双重释放漏洞进行堆风水攻击</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty advanced">高级</span>
+                            <span class="arch">x86-64</span>
+                            <span class="solved">glibc-2.23</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>House of Orange</h3>
+                            <span class="challenge-points">300 pts</span>
+                        </div>
+                        <p>无free函数的堆利用技术</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty expert">专家</span>
+                            <span class="arch">x86-64</span>
+                            <span class="solved">glibc-2.23</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 格式化字符串 -->
+            <div id="format" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-code"></i> 格式化字符串漏洞</h2>
+                    <p>学习格式化字符串漏洞的原理和利用方法</p>
+                </div>
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>格式化字符串读取</h3>
+                            <span class="challenge-points">60 pts</span>
+                        </div>
+                        <p>利用格式化字符串漏洞泄露任意指针和数据</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">进阶</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>格式化字符串写入</h3>
+                            <span class="challenge-points">120 pts</span>
+                        </div>
+                        <p>利用%n参数进行任意地址写入</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">进阶</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 栈溢出 -->
+            <div id="stack" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-layer-group"></i> 栈溢出攻击</h2>
+                    <p>掌握最基础的栈溢出漏洞利用技术</p>
+                </div>
+                <div class="challenge-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>ez_leak</h3>
+                            <span class="challenge-points">30 pts</span>
+                        </div>
+                        <p>ret2text</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty beginner">入门</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>绕过Canary</h3>
+                            <span class="challenge-points">100 pts</span>
+                        </div>
+                        <p>哇，金丝雀</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">进阶</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+                                        <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3>PIE</h3>
+                            <span class="challenge-points">100 pts</span>
+                        </div>
+                        <p>PIE是什么？能吃吗？</p>
+                        <div class="challenge-meta">
+                            <span class="difficulty intermediate">进阶</span>
+                            <span class="arch">x86-64</span>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary">开始挑战</button>
+                            <button class="btn btn-secondary">查看题解</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>学习资源</h4>
+                <ul>
+                    <li><a href="https://www.yuque.com/hxfqg9/bin">二进制安全基础教程</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>博客</h4>
+                <ul>
+                    <li><a href="https://sally-0000.github.io/">blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>关于</h4>
+                <ul>
+                    <li><a href="#" id="about-us-link">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PWN-LAB | JNSEC Sally | 仅供学习研究使用</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
