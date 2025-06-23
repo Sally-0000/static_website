@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
 function showChallengeModal(button) {
     const card = button.closest('.challenge-card');
     const title = card.querySelector('h3').textContent;
-    alert(`开始挑战: ${title}\n\n这里将打开挑战环境...`);
     // 1
     if (title.toLowerCase().includes('leak')) {
         const downloadUrl = 'https://github.com/Sally-0000/pwn_web/releases/download/pwn%E9%A2%98/1.zip';
@@ -260,18 +259,98 @@ function showChallengeModal(button) {
     }
     
 }
-
 // 显示题解模态框
 function showSolutionModal(button) {
     const card = button.closest('.challenge-card');
     const title = card.querySelector('h3').textContent;
-    alert(`查看题解: ${title}\n\n这里将显示详细题解...`);
+
+    const baseUrl = 'https://sally-0000.github.io/2025/06/22/pwn%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E5%B9%B3%E5%8F%B0wp/';
+
+    // 1
+    if (title.toLowerCase().includes('leak')) {
+        window.open(baseUrl + '#ez_leak', '_blank');
+        return;
+    }
+    // 2
+    if (title.toLowerCase().includes('ez shellcode')) {
+        window.open(baseUrl + '#EZ-Shellcode', '_blank');
+        return;
+    }
+    // 3
+    if (title.toLowerCase().includes('canary')) {
+        window.open(baseUrl + '#绕过Canary', '_blank');
+        return;
+    }
+    // 4
+    if (title.toLowerCase().includes('pie')) {
+        window.open(baseUrl + '#PIE', '_blank');
+        return;
+    }
+    // 5
+    if (title.toLowerCase().includes('rop链')) {
+        window.open(baseUrl + '#ROP链', '_blank');
+        return;
+    }
+    // 6
+    if (title.toLowerCase().includes('syscall')) {
+        window.open(baseUrl + '#ret2syscall', '_blank');
+        return;
+    }
+    // 7
+    if (title.toLowerCase().includes('ret2libc')) {
+        window.open(baseUrl + '#ret2libc', '_blank');
+        return;
+    }
+    // 8
+    if (title.toLowerCase().includes('orw')) {
+        window.open(baseUrl + '#orw', '_blank');
+        return;
+    }
+    // 9
+    if (title.toLowerCase().includes('侧信道攻击')) {
+        window.open(baseUrl + '#侧信道攻击', '_blank');
+        return;
+    }
+    // 10
+    if (title.toLowerCase().includes('格式化字符串读取')) {
+        window.open(baseUrl + '#格式化字符串读取', '_blank');
+        return;
+    }
+    // 11
+    if (title.toLowerCase().includes('格式化字符串写入')) {
+        window.open(baseUrl + '#格式化字符串写入', '_blank');
+        return;
+    }
+    // 12
+    if (title.toLowerCase().includes('srop')) {
+        window.open(baseUrl + '#SROP攻击', '_blank');
+        return;
+    }
+    // 13
+    if (title.toLowerCase().includes('csu')) {
+        window.open(baseUrl + '#ret2csu', '_blank');
+        return;
+    }
+    // 14
+    if (title.toLowerCase().includes('use')) {
+        window.open(baseUrl + '#UAF', '_blank');
+        return;
+    }
+    // 15
+    if (title.toLowerCase().includes('double free')) {
+        window.open(baseUrl + '#double - Free', '_blank');
+        return;
+    }
+    // 16
+    if (title.toLowerCase().includes('orange')) {
+        window.open(baseUrl + '#house-of-orange', '_blank');
+        return;
+    }
 }
 
 function showAboutUs() {
     const aboutText = `
-    QQ：491339386
-    计科2401-xxxx
+    QQ：4
     `;
 
     alert(aboutText);
